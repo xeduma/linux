@@ -45,9 +45,22 @@ free -h
 
 
 ## réseau
+### config IP
+DNS
+```
+nano /etc/resolv.conf
+```
+Proxy
+```
+nano /etc/resolv.conf
+```
+
+### test réseaux
 ```
 iftop
 ping -I ip_src ip_dest
+traceroute 
+mtr
 ```
 
 
