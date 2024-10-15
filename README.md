@@ -51,7 +51,9 @@ free -h
 # réseau
 ## config IP machine
 DNS : ```nano /etc/resolv.conf```
+
 Proxy : ```nano /etc/resolv.conf```
+
 ip : ```sudo nano /etc/NetworkManager/NetworkManager.conf``` | ```sudo nano /etc/Network/interfaces```
 
 
