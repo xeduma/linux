@@ -56,7 +56,6 @@ Proxy : ```nano /etc/resolv.conf```
 
 ip : ```sudo nano /etc/NetworkManager/NetworkManager.conf``` | ```sudo nano /etc/Network/interfaces```
 
-
 ## test réseaux
 ```
 iftop
@@ -95,9 +94,8 @@ lvdisplay /dev/systemvol/home me
 cat /etc/fstab                   point de montage des disk et volumes au démarrage de la machine
 
 sudo fdisk -l /dev/sda
-growpart /dev/sda 2               #    attribuer l espace restant dans le PV
+growpart /dev/sda 2                   attribuer l espace restant dans le PV
+sudo pvresize /dev/sda2               augmenté la taille du disk
 
-sudo pvresize /dev/sda2             #  augmenté la taille du disk
-
-sudo lvextend -L 5G -r /dev/systemvol/tmp | home | var       # augmente la taille du volume logique à 5G      
+sudo lvextend -L 5G -r /dev/systemvol/tmp | home | var        augmente la taille du volume logique à 5G      
 ```
