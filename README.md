@@ -1,11 +1,13 @@
 # linux
-## Système
-
-### installation de base
+# Système
+## installation de base
 ```
 sudo apt update
 sudo apt install -y htop lnav wget
 ```
+motd : ```sudo nano /etc/motd```
+https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Zabbix
+
 ### process  services
 ```
 ss   -laputen
@@ -27,11 +29,14 @@ chgrp
 find /* -name coucou
 sudo mv /usr/lib/coucou /bin/bonjour
 
-ls     cd   cat    rm -r    mkdir    nano    
+ls     cd   cat    rm -r    mkdir    nano    su -
 ```
 
 ### packet
 ```
+sudo apt update
+sudo apt upgrade
+sudo apt install
 sudo apt remove
 sudo apt purge
 ```
@@ -43,19 +48,14 @@ fdisk -l
 free -h
 ```
 
+# réseau
+## config IP machine
+DNS : ```nano /etc/resolv.conf```
+Proxy : ```nano /etc/resolv.conf```
+ip : ```sudo nano /etc/NetworkManager/NetworkManager.conf``` | ```sudo nano /etc/Network/interfaces```
 
-## réseau
-### config IP
-DNS
-```
-nano /etc/resolv.conf
-```
-Proxy
-```
-nano /etc/resolv.conf
-```
 
-### test réseaux
+## test réseaux
 ```
 iftop
 ping -I ip_src ip_dest
