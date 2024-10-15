@@ -6,7 +6,7 @@ sudo apt update
 sudo apt install -y htop lnav wget
 ```
 motd : ```sudo nano /etc/motd```
-https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Zabbix
+https://patorjk.com/software/taag/#p=display&f=Graffiti&t=coucou
 
 ### process  services
 ```
@@ -55,6 +55,14 @@ DNS : ```nano /etc/resolv.conf```
 Proxy : ```nano /etc/resolv.conf```
 
 ip : ```sudo nano /etc/NetworkManager/NetworkManager.conf``` | ```sudo nano /etc/Network/interfaces```
+```
+allow-hotplug enp0s3
+iface enp0s3 inet static
+      address 192.168.3.158/29
+      gateway 192.168.2.40
+```
+
+redémarrer la carte réseau ```/etc/init.d/networking restart ```
 
 ## test réseaux
 ```
