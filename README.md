@@ -30,6 +30,12 @@ find /* -name coucou
 sudo mv /usr/lib/coucou /bin/bonjour
 
 ls     cd   cat    rm -r    mkdir    nano    su -
+
+screen -S coucou                    créer le screen coucou
+ctrl + a + d                        quitter en sauvegardant
+ctrl + d                            quit en fermant
+screen -ls
+screen -r coucou                    rentrer dans le screen
 ```
 
 ### packet
