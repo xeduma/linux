@@ -54,6 +54,28 @@ fdisk -l
 free -h
 ```
 
+### LVM 
+```
+fdisk -l
+df -hT                           Affiche les partitions
+pvs                              Physical Volumes (liste)
+vgs                              Virtual Groups
+lvs                              Logical Volumes
+
+pvdisplay /dev/sda2              voir les volumes physiques
+lvs systemvol                    voir les volumes logiques
+lvdisplay /dev/systemvol/home me     
+
+cat /etc/fstab                   point de montage des disk et volumes au démarrage de la machine
+
+sudo fdisk -l /dev/sda
+growpart /dev/sda 2                   attribuer l espace restant dans le PV
+sudo pvresize /dev/sda2               augmenté la taille du disk
+
+sudo lvextend -L 5G -r /dev/systemvol/tmp | home | var        augmente la taille du volume logique à 5G      
+```
+
+
 # réseau
 ## config IP machine
 DNS : ```nano /etc/resolv.conf```
@@ -76,27 +98,6 @@ iftop
 ping -I ip_src ip_dest
 traceroute 
 mtr
-```
-
-### LVM 
-```
-fdisk -l
-df -hT                           Affiche les partitions
-pvs                              Physical Volumes (liste)
-vgs                              Virtual Groups
-lvs                              Logical Volumes
-
-pvdisplay /dev/sda2              voir les volumes physiques
-lvs systemvol                    voir les volumes logiques
-lvdisplay /dev/systemvol/home me     
-
-cat /etc/fstab                   point de montage des disk et volumes au démarrage de la machine
-
-sudo fdisk -l /dev/sda
-growpart /dev/sda 2                   attribuer l espace restant dans le PV
-sudo pvresize /dev/sda2               augmenté la taille du disk
-
-sudo lvextend -L 5G -r /dev/systemvol/tmp | home | var        augmente la taille du volume logique à 5G      
 ```
 
 # autres utilitaires
