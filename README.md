@@ -78,21 +78,6 @@ traceroute
 mtr
 ```
 
-
-### cloud-init
-```
-user-data
-meta-data
-
-/etc/apt/sourcelistes                               >       bulleye-security
-env | grep proxy
-nano /etc/profiles.d/proxy.sh
-export http_proxy = 'http://rt:rtlry@rt-proxy.rtprive.rt'
-
-ls -lah          liste les droits + fichiers cachés + Taille
-```
-
-
 ### LVM 
 ```
 fdisk -l
@@ -112,4 +97,42 @@ growpart /dev/sda 2                   attribuer l espace restant dans le PV
 sudo pvresize /dev/sda2               augmenté la taille du disk
 
 sudo lvextend -L 5G -r /dev/systemvol/tmp | home | var        augmente la taille du volume logique à 5G      
+```
+
+# autres utilitaires
+### cloud-init
+```
+user-data
+meta-data
+
+/etc/apt/sourcelistes                               >       bulleye-security
+env | grep proxy
+nano /etc/profiles.d/proxy.sh
+export http_proxy = 'http://rt:rtlry@rt-proxy.rtprive.rt'
+
+ls -lah          liste les droits + fichiers cachés + Taille
+```
+
+### GIT
+```
+git pull
+#télécharger les nouveaux doc disponibles
+
+git add *
+git commit -m "modif de sam"
+#ouvre une fenetre VM ( pour messages plus long)
+git commit 
+
+git push 
+
+#Lister les fichiers
+git status
+#affiche les dossiers / fichiers qui ne sont pas a jour dans le Repertoire distant
+
+git fetch
+#vérifie les nouveau doc disponibles
+
+
+#données sensibles pour cacher l'upload des fichiers 
+https://git-scm.com/docs/gitignore
 ```
