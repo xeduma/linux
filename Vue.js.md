@@ -11,3 +11,8 @@ Entrer
 ```
 cd /home/pi/vue_js/finance
 ```
+faire les modifs
+build le projet
+```bash
+sudo npm run serve
+```
