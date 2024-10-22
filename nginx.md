@@ -49,13 +49,12 @@ désactivé l'affichage de la version de nginx
 limité tail des requetes en mémoire tampon
 
 ```
-  server_tokens off;
+          server_tokens off;
           client_body_buffer_size 1k;
-          client_header_buffer_size k;
+          client_header_buffer_size 1k;
           client_max_body_size 1k;
 
-
-    # Prevent clickjacking attacks
+ # Prevent clickjacking attacks
     add_header X-Frame-Options "SAMEORIGIN" always;
 
     # Add an HSTS header to your nginx server
@@ -63,14 +62,14 @@ limité tail des requetes en mémoire tampon
 
     # Cross-site scripting protection
     add_header X-XSS-Protection "1; mode=block";
-    default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';
+#    default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';
 
     # Prevention of MIME confusion-based attacks
     add_header X-Content-Type-Options "nosniff" always;
 
     # Hide X-Powered-By header
     proxy_hide_header X-Powered-By;
-    more_clear_headers 'X-Powered-By';
+#    more_clear_headers 'X-Powered-By';
 
     # Referrer policy
     add_header Referrer-Policy "origin-when-cross-origin" always;
