@@ -1,18 +1,18 @@
 # NGINX
 ### créer un dossier, et le sécurisé
-```
+```bash
 sudo mkdir /var/www/html/coucou
 sudo nano /var/www/html/coucou/index.html
 ```
-```
+```bash
 sudo chown -R www-data:www-data /var/www/html/coucou
 ```
 
 ## sites-available
-```
+```bash
 sudo nano /etc/nginx/sites-availanle/coucou
 ```
-```
+```bash
 
 ###---finance.coucou.fr
 server {
@@ -52,7 +52,7 @@ server {
 
 ```
 lien simbolique vers sites-enabled
-```
+```bash
 sudo ln -s /etc/nginx/sites-available/coucou /etc/nginx/sites-enabled/coucou
 ```
 
@@ -66,14 +66,14 @@ info https avec certif du bon nom de sous domaine téléchargé
 https://blog.stephane-robert.info/docs/services/web/nginx/
 sécurité ssl
 sécurité logon, tail max, user.....
-```
+```bash
 sudo nano /etc/nginx/nginx.conf
 ```
 désactivé l'affichage de la version de nginx
 
 limité tail des requetes en mémoire tampon
 
-```
+```bash
           server_tokens off;
           client_body_buffer_size 1k;
           client_header_buffer_size 1k;
@@ -103,15 +103,15 @@ limité tail des requetes en mémoire tampon
 limit_conn addr 10;
 ```
 ssl 
-```
+```bash
 ssl_prefer_server_ciphers on;
 ```
 
 bloquer les autres methodes http : 
-```
+```bash
 sudo nano /etc/nginx/sites-available/coucou
 ```
-```
+```bash
 location / {
         limit_except GET HEAD POST {
             deny all;
@@ -121,7 +121,7 @@ location / {
 tester la securité avec https://securityheaders.com/
 
 # démarrer le service
-```
+```bash
 sudo systemctl reload nginx
 
 sudo systemctl status nginx
