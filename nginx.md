@@ -96,7 +96,7 @@ location / {
         }
 }
 ```
-
+tester la securité avec https://securityheaders.com/
 
 # démarrer le service
 ```
