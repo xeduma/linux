@@ -13,29 +13,43 @@ sudo chown -R www-data:www-data /var/www/html/coucou
 sudo nano /etc/nginx/sites-availanle/coucou
 ```
 ```
+
 ###---finance.coucou.fr
 server {
     listen 443 ssl;
-
     server_name finance.coucou.fr;
-    root /var/www/html/finance;
 
     ssl_certificate /etc/nginx/ssl/coucou.fr.cer;
     ssl_certificate_key /etc/nginx/ssl/coucou.fr.key;
     ssl_protocols TLSv1.3;
+
+        location / {
+                root /var/www/html/finance;
+                index index.html;
+                limit_except GET HEAD POST {
+                    deny all;
+                }
+        }
 }
 
 ###---crypto.coucou.fr
 server {
     listen 443 ssl;
-
     server_name crypto.coucou.fr;
-    root /var/www/html/crypto;
 
     ssl_certificate /etc/nginx/ssl/coucou.fr.cer;
     ssl_certificate_key /etc/nginx/ssl/coucou.fr.key;
     ssl_protocols TLSv1.3;
+
+        location / {
+                root /var/www/html/crypto;
+                index index.html
+                limit_except GET HEAD POST {
+                    deny all;
+                }
+        }
 }
+
 ```
 lien simbolique vers sites-enabled
 ```
