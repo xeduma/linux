@@ -14,5 +14,7 @@ cd /home/pi/vue_js/finance
 faire les modifs
 build le projet
 ```bash
+screen -S finance
 sudo npm run serve
+ctrl + A + D
 ```
