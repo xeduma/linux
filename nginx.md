@@ -49,6 +49,7 @@ info https avec certif du bon nom de sous domaine téléchargé
 
 
 # sécurisé nginx
+https://blog.stephane-robert.info/docs/services/web/nginx/
 sécurité ssl
 sécurité logon, tail max, user.....
 ```
