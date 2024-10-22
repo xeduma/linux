@@ -95,7 +95,7 @@ ssl_prefer_server_ciphers on;
 
 bloquer les autres methodes http : 
 ```
-sudo nano /etc/nginx/nginx.conf
+sudo nano /etc/nginx/sites-available/coucou
 ```
 ```
 location / {
