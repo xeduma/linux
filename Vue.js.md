@@ -3,11 +3,11 @@
 
 # creation projet
 ```bash
-sudo mkdir /var/www/finance_dev
-sudo su -
-cd /var/www/html/finance_dev
-vue create finance
+sudo mkdir /home/pi/vue_js/finance
+cd /home/pi/vue_js/finance
+sudo vue create finance
 ```
+Entrer
 ```
-cd finance
+cd /home/pi/vue_js/finance
 ```
