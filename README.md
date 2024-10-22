@@ -1,7 +1,7 @@
 # linux
 # Système
 ## installation de base
-```
+```bash
 sudo apt update
 sudo apt install -y htop lnav wget git
 ```
@@ -9,7 +9,7 @@ motd : ```sudo nano /etc/motd```
 https://patorjk.com/software/taag/#p=display&f=Graffiti&t=coucou
 
 ### process  services
-```
+```bash
 ss   -laputen
 netstat -laputen
 
@@ -18,7 +18,7 @@ sudo systemctl status mariadb.service
 ```
 
 ### système  utilitaire
-```
+```bash
 uname -a
 lsb_release -d
 
@@ -39,7 +39,7 @@ screen -r coucou                    rentrer dans le screen
 ```
 
 ### packet
-```
+```bash
 sudo apt update
 sudo apt upgrade
 sudo apt install
@@ -48,14 +48,14 @@ sudo apt purge
 ```
 
 ### disk
-```
+```bash
 lsblk
 fdisk -l
 free -h
 ```
 
 ### LVM 
-```
+```bash
 fdisk -l
 df -hT                           Affiche les partitions
 pvs                              Physical Volumes (liste)
