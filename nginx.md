@@ -52,7 +52,7 @@ sudo mkdir /var/www/html/coucou
 sudo nano /var/www/html/coucou/index.html
 ```
 ```
-sudo chown -R /var/www/html/coucou
+sudo chown -R www-data:www-data /var/www/html/coucou
 ```
 
 
