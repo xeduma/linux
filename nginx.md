@@ -85,6 +85,18 @@ limité tail des requetes en mémoire tampon
     add_header Referrer-Policy "origin-when-cross-origin" always;
 ```
 
+bloquer les autres methodes http : 
+```
+sudo nano /etc/nginx/nginx.conf
+```
+```
+location / {
+        limit_except GET HEAD POST {
+            deny all;
+        }
+}
+```
+
 
 # démarrer le service
 ```
