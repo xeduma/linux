@@ -86,7 +86,7 @@ limité tail des requetes en mémoire tampon
 ```
 
 
-## démarrer le service
+# démarrer le service
 ```
 sudo systemctl reload nginx
 
