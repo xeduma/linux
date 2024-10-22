@@ -1,8 +1,34 @@
 # NGINX
 ## sites-available
 ```
-sudo nano /etc/nginx/sites-available/8081-dashboard.www.fr
+sudo nano /etc/nginx/sites-availanle/coucou
 ```
+```
+###---finance.xeduma.fr
+server {
+    listen 443 ssl;
+
+    server_name finance.xeduma.fr;
+    root /var/www/html/finance;
+
+    ssl_certificate /etc/nginx/ssl/xeduma.fr.cer;
+    ssl_certificate_key /etc/nginx/ssl/xeduma.fr.key;
+    ssl_protocols TLSv1.3;
+}
+
+###---crypto.xeduma.fr
+server {
+    listen 443 ssl;
+
+    server_name crypto.xeduma.fr;
+    root /var/www/html/crypto;
+
+    ssl_certificate /etc/nginx/ssl/xeduma.fr.cer;
+    ssl_certificate_key /etc/nginx/ssl/xeduma.fr.key;
+    ssl_protocols TLSv1.3;
+}
+```
+
 info https avec certif du bon nom de sous domaine téléchargé
 ```
 
@@ -20,14 +46,7 @@ sécurité logon, tail max, user.....
 sudo nano /etc/nginx/nginx.conf
 ```
 
-
-## config fichier host
-```
-sudo nano /etc/nginx/sites-availanle/coucou
-```
-voici la config a mettre par exemple
-
-## créer un dossier, et le sécurisé
+### créer un dossier, et le sécurisé
 ```
 sudo mkdir /var/www/html/coucou
 sudo nano /var/www/html/coucou/index.html
