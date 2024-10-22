@@ -44,8 +44,14 @@ sécurité logon, tail max, user.....
 ```
 sudo nano /etc/nginx/nginx.conf
 ```
-désactivé l'affichage de la version de nginx : ```server_tokens off;```
-limité tail des requetes en mémoire tampon : ``` client_body_buffer_size 1k ```
+désactivé l'affichage de la version de nginx
+limité tail des requetes en mémoire tampon
+```
+server_tokens off;
+          client_body_buffer_size 1k;
+          client_header_buffer_size k;
+          client_max_body_size 1k;
+```
 
 ### créer un dossier, et le sécurisé
 ```
