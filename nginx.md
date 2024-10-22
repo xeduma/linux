@@ -84,6 +84,10 @@ limité tail des requetes en mémoire tampon
     # Referrer policy
     add_header Referrer-Policy "origin-when-cross-origin" always;
 ```
+ssl 
+```
+ssl_prefer_server_ciphers on;
+```
 
 bloquer les autres methodes http : 
 ```
