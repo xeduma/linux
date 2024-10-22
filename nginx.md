@@ -83,6 +83,9 @@ limité tail des requetes en mémoire tampon
 
     # Referrer policy
     add_header Referrer-Policy "origin-when-cross-origin" always;
+
+#limiter les connexion (DDOS)
+limit_conn addr 10;
 ```
 ssl 
 ```
