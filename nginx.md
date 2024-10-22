@@ -38,13 +38,14 @@ lien simbolique vers sites-enabled
 sudo ln -s /etc/nginx/sites-available/coucou /etc/nginx/sites-enabled/coucou
 ```
 
-## sécurisé nginx
+# sécurisé nginx
 sécurité ssl
-
 sécurité logon, tail max, user.....
 ```
 sudo nano /etc/nginx/nginx.conf
 ```
+désactivé l'affichage de la version de nginx : ```server_tokens off;```
+limité tail des requetes en mémoire tampon : ``` client_body_buffer_size 1k ```
 
 ### créer un dossier, et le sécurisé
 ```
