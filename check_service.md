@@ -1,4 +1,4 @@
-#check_planning.sh
+# check_planning.sh
 ```bash
 #!/bin/bash
 
@@ -23,5 +23,16 @@ status=$status
 Date=$date
 Heure=$heure" > /mnt/Monitoring_service/Last_Check_MARELIS_planning-as.txt
 fi
-
 ```
+
+# plannification crontab 
+```bash
+crontab -e
+1                   nano
+02,07,12,17,22,27,32,37,42,47,52,57 * * * * /home/marelis/check_service/check_planning.sh
+```
+pour executer le script tout les 5 min, à 02, 07....
+```bash
+*/5 * * * * /home/marelis/check_service/check_planning.sh
+```
+pour executer le script tt les 5 min    00  05 ....
