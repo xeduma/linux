@@ -10,12 +10,18 @@ MariaDB [(none)]> exit
 ```
 créer une table 
 ```sql
-CREATE TABLE bourse
+CREATE TABLE utilisateur
 (
-    colonne1 type_donnees,
-    colonne2 type_donnees,
-    colonne3 type_donnees,
-    colonne4 type_donnees
+    id INT PRIMARY KEY NOT NULL,
+    nom VARCHAR(100),
+    yes BOOL,
+    prenom VARCHAR(100),
+    email VARCHAR(255),
+    date_naissance DATE,
+    pays VARCHAR(255),
+    ville VARCHAR(255),
+    code_postal VARCHAR(5),
+    nombre_achat INT
 )
-id, borker_nom, broker_type, nom_action, type_action, prix_achat, date_achat, quantité, dividendes
+
 ```
