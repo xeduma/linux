@@ -23,4 +23,6 @@ sudo pm2 start --name=immo_backend_api npm -- start
 sudo pm2 list
 
 sudo pm2 delete 3
+
+sudo pm2 save
 ```
