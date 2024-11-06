@@ -15,5 +15,11 @@ pm2 save
 
 pm2 stop
 pm2 delete
+```
+commande projet immo
+```bash
+cd /home/pi/immo_backend
+sudo pm2 start --name=immo_backend_api npm -- start
+sudo pm2 list
 
 ```
