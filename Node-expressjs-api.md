@@ -7,14 +7,15 @@ sudo npm install pm2 -g
 ```
 commandes pm2
 ```bash
-pm2 list                               list les process node
-pm2 start                               start process
-pm2 monitor                            monitor
-pm2 startup                            lors du redémarrage, les process en cours vont démarre
-pm2 save
+sudo pm2 list                               list les process node
+sudo pm2 start                               start process
+sudo pm2 monitor                            monitor
+sudo pm2 dashboard
+sudo pm2 startup                            lors du redémarrage, les process en cours vont démarre
+sudo pm2 save
 
-pm2 stop
-pm2 delete
+sudo pm2 stop
+sudo pm2 delete
 ```
 commande projet immo
 ```bash
