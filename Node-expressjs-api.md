@@ -10,5 +10,10 @@ commandes pm2
 pm2 list                               list les process node
 pm2 start                               start process
 pm2 monitor                            monitor
+pm2 startup                            lors du redémarrage, les process en cours vont démarre
+pm2 save
+
+pm2 stop
+pm2 delete
 
 ```
