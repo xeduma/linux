@@ -14,17 +14,17 @@ sudo nano /etc/nginx/sites-availanle/coucou
 ```
 ```bash
 
-###---finance.coucou.fr
+###---a.coucou.fr
 server {
     listen 443 ssl;
-    server_name finance.coucou.fr;
+    server_name a.coucou.fr;
 
     ssl_certificate /etc/nginx/ssl/coucou.fr.cer;
     ssl_certificate_key /etc/nginx/ssl/coucou.fr.key;
     ssl_protocols TLSv1.3;
 
         location / {
-                root /var/www/html/finance;
+                root /var/www/html/a;
                 index index.html;
                 limit_except GET HEAD POST {
                     deny all;
@@ -32,17 +32,17 @@ server {
         }
 }
 
-###---crypto.coucou.fr
+###---b.coucou.fr
 server {
     listen 443 ssl;
-    server_name crypto.coucou.fr;
+    server_name b.coucou.fr;
 
     ssl_certificate /etc/nginx/ssl/coucou.fr.cer;
     ssl_certificate_key /etc/nginx/ssl/coucou.fr.key;
     ssl_protocols TLSv1.3;
 
         location / {
-                root /var/www/html/crypto;
+                root /var/www/html/b;
                 index index.html
                 limit_except GET HEAD POST {
                     deny all;
