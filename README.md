@@ -86,8 +86,8 @@ ip : ```sudo nano /etc/NetworkManager/NetworkManager.conf``` | ```sudo nano /etc
 ```
 allow-hotplug enp0s3
 iface enp0s3 inet static
-      address 192.168.3.158/29
-      gateway 192.168.2.40
+      address 192.168.1.2/24
+      gateway 192.168.1.1
 ```
 
 redémarrer la carte réseau ```/etc/init.d/networking restart ```
@@ -109,7 +109,7 @@ meta-data
 /etc/apt/sourcelistes                               >       bulleye-security
 env | grep proxy
 nano /etc/profiles.d/proxy.sh
-export http_proxy = 'http://rt:rtlry@rt-proxy.rtprive.rt'
+export http_proxy = 'http://coucou:coucou@coucou.fr'
 
 ls -lah          liste les droits + fichiers cachés + Taille
 ```
