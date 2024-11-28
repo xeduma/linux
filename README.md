@@ -4,6 +4,9 @@
  - [commandes système](#système)
 
  - [commandes réseau](#réseau)
+  
+- [commandes divers](#autres-utilitaires)
+
 
 projets : 
  - [Minecraft](Minecraft.md)
