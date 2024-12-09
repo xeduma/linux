@@ -1,4 +1,9 @@
-cc
+# script en bash
+
+## instalation
+```bash
+sudo apt install msmtp
+```
 ```bash
 nano ~/.msmtprc
 ```
@@ -24,3 +29,4 @@ account default : office
 ```bash
 chmod 600 ~/.msmtprc
 ```
+répertoire /home/cc/.msmtprc 
