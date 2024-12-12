@@ -25,9 +25,12 @@ pour executer le script tt les 1 min
 ```
 
 pour executer le script entre 8H00 et 17h30
+https://www.malekal.com/crontab-cron-linux-utilisations-exemples/#google_vignette)
+on reboot 
 ```bash
-* * * * * /home/coucou/check_service/coucou.sh
+@reboot /home/coucou/check_service/coucou.sh
 ```
+
 
 
 
