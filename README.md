@@ -20,7 +20,7 @@ projets :
 
 
  - [Check](check)
-   [send Mail](mail/README.md)
+ - [send Mail](mail/README.md)
 
    
 # Système
