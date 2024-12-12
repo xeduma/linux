@@ -7,7 +7,7 @@ then
         status=ok
         date=$(bash -c 'date +"%Y%m%d"')
         heure=$(bash -c 'date +"%T"')
-echo "Planning-as=$status
+echo "Planning-cc=$status
 status=$status
 Date=$date
 Heure=$heure" > /mnt/Monitoring_service/Lats_check_coucou.txt
