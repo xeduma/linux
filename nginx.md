@@ -128,3 +128,9 @@ sudo systemctl status nginx
 lnav /var/log/nginx
 journalctl -xe nginx
 ```
+
+# lister les services nginx ouvert
+```bash
+sudo lsof -i :443
+```
+
