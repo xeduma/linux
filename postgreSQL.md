@@ -11,7 +11,7 @@ su - postgres
 psql -c "ALTER USER postgres WITH password 'monsupermotdepasse'"
 ```
 connexion directement
-```bash
+```bashs
 sudo -u postgres psql
 ```
 connexion user on linux
@@ -40,6 +40,11 @@ quitter la console
 lister les BDD
 ```sql
 psql -l
+\l
+```
+lister les tables dans une BDD
+```sql
+
 ```
 créer une table
 ```sql
