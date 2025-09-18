@@ -49,19 +49,37 @@ lister les tables dans une BDD
 ```
 créer une table
 ```sql
- CREATE TABLE message ( id SERIAL PRIMARY KEY, text CHAR(64));
+CREATE TABLE clients (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
+    telephone VARCHAR(20),
+    adresse TEXT,
+    ville VARCHAR(100),
+    code_postal VARCHAR(20),
+    pays VARCHAR(50) DEFAULT 'France',
+    date_creation TIMESTAMP DEFAULT NOW()
+);
 ```
 insérer de la data
 ```sql
-INSERT INTO message (text) VALUES ('Bonjour!');
+INSERT INTO clients (nom, prenom, telephone, adresse, ville, code_postal, pays) VALUES
+('Dupont', 'Jean', '0612345678', '12 rue de la Paix', 'Paris', '75001', 'France');
 ```
 lire le contenu d'une table
 ```sql
- SELECT * FROM message;
+ SELECT * FROM clients ;
+```
+modifier la ligne 1  d'une table
+```sql
+UPDATE clients
+SET prenom = 'Marie',
+    telephone = '0654321098'
+WHERE id = 1;
 ```
 supprimer une table
 ```sql
- SELECT * FROM message;
+ DROP TABLE clients ;
 ```
 ! supprimé une BDD
 ```sql
