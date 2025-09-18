@@ -10,6 +10,14 @@ modifier le mdp user admin
 su - postgres
 psql -c "ALTER USER postgres WITH password 'monsupermotdepasse'"
 ```
+connexion directement
+```bash
+sudo -u postgres psql
+```
+connexion user on linux
+```bash
+su - postgres
+```
 créer un utilisateur
 ```sql
 createuser user1
