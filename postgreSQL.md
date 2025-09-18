@@ -16,7 +16,14 @@ sudo -u postgres psql
 ```
 connexion user on linux
 ```bash
-su - postgres
+sudo su - postgres
+```
+
+## utilisation
+connexion a une BDD
+```sql
+psql bdd1
+psql -U ddvs_motoculture -d ddvs-motoculture
 ```
 créer un utilisateur
 ```sql
@@ -26,17 +33,11 @@ créer une base
 ```sql
 createdb masuperbdd -O user1
 ```
-
-## utilisation
-connexion a une BDD
-```sql
-psql bdd1
-```
 quitter la console
 ```sql
 \q
 ```
-
+### commandes PSQL
 lister les BDD
 ```sql
 psql -l
