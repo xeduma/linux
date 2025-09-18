@@ -4,27 +4,52 @@
 sudo apt install postgresql
 sudo systemctl enable postgresql
 ```
+## Configuration de base
 modifier le mdp user admin
 ```bash
-CREATE TABLE utilisateur
-(
-    id INT PRIMARY KEY NOT NULL,
-    nom VARCHAR(100),
-    yes BOOL,
-    prenom VARCHAR(100),
-    email VARCHAR(255),
-    date_naissance DATE,
-    pays VARCHAR(255),
-    ville VARCHAR(255),
-    code_postal VARCHAR(5),
-    nombre_achat INT
-)
+su - postgres
+psql -c "ALTER USER postgres WITH password 'monsupermotdepasse'"
 ```
 créer un utilisateur
 ```sql
-a
+createuser user1
 ```
 créer une base 
 ```sql
-a
+createdb masuperbdd -O user1
+```
+
+## utilisation
+connexion a une BDD
+```sql
+psql bdd1
+```
+quitter la console
+```sql
+\q
+```
+
+lister les BDD
+```sql
+psql -l
+```
+créer une table
+```sql
+ CREATE TABLE message ( id SERIAL PRIMARY KEY, text CHAR(64));
+```
+insérer de la data
+```sql
+INSERT INTO message (text) VALUES ('Bonjour!');
+```
+lire le contenu d'une table
+```sql
+ SELECT * FROM message;
+```
+supprimer une table
+```sql
+ SELECT * FROM message;
+```
+! supprimé une BDD
+```sql
+dropdb bdd1
 ```
