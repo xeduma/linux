@@ -4,6 +4,10 @@
 sudo apt install postgresql
 sudo systemctl enable postgresql
 ```
+logs
+```bash
+sudo tail -f /var/log/postgresql/postgresql-*-main.log
+```
 ## Configuration de base
 modifier le mdp user admin
 ```bash
