@@ -24,7 +24,10 @@ connexion a une BDD
 psql ddvs-motoculture
 sudo psql -h 127.0.0.1 -U ddvs_motoculture -d ddvs-motoculture -p 5432
 ```
-
+connexion depuis l'extéreur
+```sql
+suod ufw allow 5432/tcp
+```
 ## utilisation
 créer un utilisateur
 ```sql
