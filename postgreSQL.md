@@ -19,13 +19,13 @@ connexion user on linux
 ```bash
 sudo su - postgres
 ```
-
-## utilisation
 connexion a une BDD
 ```sql
-psql bdd1
+psql ddvs-motoculture
 psql -U ddvs_motoculture -d ddvs-motoculture
 ```
+
+## utilisation
 créer un utilisateur
 ```sql
 createuser user1
@@ -38,6 +38,10 @@ quitter la console
 ```sql
 \q
 ```
+liste des roles et attributs
+```sql
+\du
+```
 ### commandes PSQL
 lister les BDD
 ```sql
@@ -46,7 +50,7 @@ psql -l
 ```
 lister les tables dans une BDD
 ```sql
-
+\dt
 ```
 créer une table
 ```sql
