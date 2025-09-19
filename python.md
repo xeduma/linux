@@ -22,4 +22,4 @@ pip3 install flask psycopg2-binary python-dotenv
 ## lancé un script
 ```bash
 python3 app.py
-```b
+```
