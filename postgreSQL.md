@@ -22,7 +22,7 @@ sudo su - postgres
 connexion a une BDD
 ```sql
 psql ddvs-motoculture
-psql -U ddvs_motoculture -d ddvs-motoculture
+sudo psql -h 127.0.0.1 -U ddvs_motoculture -d ddvs-motoculture -p 5432
 ```
 
 ## utilisation
