@@ -124,6 +124,12 @@ traceroute
 mtr
 ```
 
+## ports
+```
+netstat -ltnp
+ss -ltnp | grep listen
+```
+
 # autres utilitaires
 ### cloud-init
 ```
