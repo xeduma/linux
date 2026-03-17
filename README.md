@@ -129,6 +129,13 @@ mtr
 netstat -ltnp
 ss -ltnp | grep listen
 ```
+## ip public
+```
+curl -4 ifconfig.me
+curl ifconfig.me
+```
+
+
 
 # autres utilitaires
 ### cloud-init
