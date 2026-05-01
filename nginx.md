@@ -15,6 +15,16 @@ sudo nano /etc/nginx/sites-availanle/coucou
 ```bash
 
 ###---a.coucou.fr
+
+server {
+    listen 80;
+    listen [::]:80;
+    
+    server_name a.coucou.fr;
+    return 301 https://$host$request_uri;
+    }
+
+    
 server {
     listen 443 ssl;
     server_name a.coucou.fr;
@@ -29,6 +39,10 @@ server {
                 limit_except GET HEAD POST {
                     deny all;
                 }
+                limit_conn addr 10;
+                if ($http_user_agent ~* foo|bar) { 
+                    return 403;
+                }  
         }
 }
 
