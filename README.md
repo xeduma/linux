@@ -174,3 +174,8 @@ git fetch
 #données sensibles pour cacher l'upload des fichiers 
 https://git-scm.com/docs/gitignore
 ```
+### transfert
+```bash
+scp -P port C:\source debian@vps:/home/debian/
+
+```
