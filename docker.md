@@ -23,6 +23,7 @@ cd FOLDER
 ```bash
 docker exec NOM_CONTAINEUR pg_dump -U postgres twenty > backup_$(date +%Y%m%d).sql
 ```
+enlever twenty, pour utilisé la base par defaut
 ### Automatiser les sauvegardes quotidiennes
 ```bash
 crontab -e
