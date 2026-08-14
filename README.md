@@ -77,6 +77,8 @@ sudo apt purge
 lsblk
 fdisk -l
 free -h
+sudo du -h --max-depth=1 /home/
+du -sh /du -sh sudo/varsudo duvar
 ```
 
 ### LVM 
