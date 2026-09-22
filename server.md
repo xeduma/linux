@@ -43,14 +43,27 @@ AllowUsers user
 PermitRootLogin No
 ClientAliveInterval 600
 ClientAliveCountMax 2
+X11Forwarding no
 #----------------------------------
 ```
 ```bash
 sudo systemctl restart ssh
 ```
 
+# fail2ban
 
-connexion user
 ```bash
-
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+sudo nano /etc/fail2ban/jail.local
 ```
+```bash
+[sshd]
+enabled = true
+port = 222
+filter = sshd
+logpath = /var/log/auth.log
+maxretry = 4
+bantime = 3600
+findtime = 600
+```
+
