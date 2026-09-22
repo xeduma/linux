@@ -181,7 +181,7 @@ https://git-scm.com/docs/gitignore
 ### transfert
 ```bash
 scp -P port C:\source debian@vps:/home/debian/
-
+rsync -avz -e "ssh -p 22" ./site/ utilisateur@ip_ou_domaine:/var/www/site/
 ```
 
 - [NGINX](nginx.md)
