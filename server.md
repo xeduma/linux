@@ -39,6 +39,9 @@ ClientAliveInterval 600
 ClientAliveCountMax 0
 #----------------------------------
 ```
+```bash
+systemctl restart ssh
+```
 
 
 connexion user
