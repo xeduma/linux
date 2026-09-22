@@ -31,7 +31,7 @@ nano /etc/ssh/sshd_config
 Port 222 (ne pas mettre ce port)
 ```
 
-
+https://fr.linux-terminal.com/?p=9152
 ## sécurité ssh
 ```bash
 nano /etc/ssh/sshd_config
@@ -66,4 +66,25 @@ maxretry = 4
 bantime = 3600
 findtime = 600
 ```
+```bash
+sudo systemctl restart fail2ban
+sudo systemctl enable fail2ban
+sudo fail2ban-client status sshd
+```
 
+Vérifier le statut de l'interdiction :
+sudo fail2ban-client status sshd
+
+Voir les IP interdites :
+sudo fail2ban-client get sshd banip
+
+Débloquer manuellement une IP :
+sudo fail2ban-client set sshd unbanip IP_ADDRESS
+
+Surveiller les journaux de fail2ban :
+sudo tail -f /var/log/fail2ban.log
+
+
+```bash
+
+```
