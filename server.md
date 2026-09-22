@@ -41,7 +41,7 @@ PasswordAuthentication yes
 AllowUsers user
 PermitRootLogin No
 ClientAliveInterval 600
-ClientAliveCountMax 0
+ClientAliveCountMax 2
 #----------------------------------
 ```
 ```bash
