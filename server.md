@@ -15,10 +15,12 @@ sudo apt install fail2ban lnav htop wget curl nginx ufw
 sudo systemctl stop nginx
 ```
 # SSH 
-## port
+## port + firewall
 modifier le port par default  
 ```bash
 ufw allow 222/tcp
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
 ufw status
 ufw enable
 ufw status
