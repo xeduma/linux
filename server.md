@@ -36,6 +36,7 @@ Port 222 (ne pas mettre ce port)
 ```bash
 nano /etc/ssh/sshd_config
 ####----config custom-------
+Protocol 2
 Port 222 (ne pas mettre ce port)
 PasswordAuthentication yes
 AllowUsers user
