@@ -46,7 +46,7 @@ ClientAliveCountMax 2
 #----------------------------------
 ```
 ```bash
-systemctl restart ssh
+sudo systemctl restart ssh
 ```
 
 
