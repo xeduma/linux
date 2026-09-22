@@ -34,6 +34,7 @@ nano /etc/ssh/sshd_config
 Port 222 (ne pas mettre ce port)
 PasswordAuthentication yes
 AllowUsers user
+PermitRootLogin No
 ClientAliveInterval 600
 ClientAliveCountMax 0
 #----------------------------------
