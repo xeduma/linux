@@ -24,7 +24,6 @@ ufw enable
 ufw status
 nano /etc/ssh/sshd_config
 Port 222 (ne pas mettre ce port)
-
 ```
 
 
@@ -35,7 +34,8 @@ nano /etc/ssh/sshd_config
 Port 222 (ne pas mettre ce port)
 PasswordAuthentication yes
 AllowUsers user
-
+ClientAliveInterval 600
+ClientAliveCountMax 0
 #----------------------------------
 ```
 
