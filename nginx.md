@@ -296,6 +296,7 @@ server {
 ```bash
 sudo ln -s /etc/nginx/sites-available/sous-domaine.domaine.fr /etc/nginx/sites-enabled/
 sudo nginx -t && sudo systemctl reload nginx
+sudo ufw allow 443/tcp
 ```
 
 # démarrer le service
