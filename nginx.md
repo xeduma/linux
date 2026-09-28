@@ -170,11 +170,11 @@ http {
 ```
 
 ```bash
-sudo nano /etc/nginx/snippets/ssl-ddvs.conf
+sudo nano /etc/nginx/snippets/ssl-domaine.conf
 ```
 ```bash
-ssl_certificate     /etc/ssl/ddvs.fr/domaine.fr.crt;
-ssl_certificate_key /etc/ssl/ddvs.fr/domaine.fr.key;
+ssl_certificate     /etc/ssl/domaine.fr/domaine.fr.crt;
+ssl_certificate_key /etc/ssl/domaine.fr/domaine.fr.key;
 ```
 
 ```bash
