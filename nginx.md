@@ -242,6 +242,62 @@ server {
 ```
 tester la securité avec https://securityheaders.com/
 
+# page web sous-domaine.domaine.fr
+## créer l'environnement
+```bash
+sudo mkdir -p /var/www/sous-domaine.domaine.fr
+sudo nano /var/www/sous-domaine.domaine.fr.fr/index.html
+```
+permissions
+```bash
+sudo chown -R root:www-data /var/www/sous-domaine.domaine.fr
+sudo find /var/www/sous-domaine.domaine.fr -type d -exec chmod 750 {} \;
+sudo find /var/www/sous-domaine.domaine.fr -type f -exec chmod 640 {} \;
+```
+
+## créer Vhost nginx
+```bash
+sudo nanp /etc/nginx/sites-available/sous-domaine.domaine.fr
+```
+```bash
+server {
+    listen 80;
+    listen [::]:80;
+    server_name status.domaine.fr;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    http2 on;
+    server_name status.domainecloud.fr;
+
+    root /var/www/status.domaine.fr;
+    index index.html;
+
+    include snippets/ssl-domaine.conf;
+    include snippets/security-headers.conf;
+    add_header Content-Security-Policy "default-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'" always;
+
+    limit_req  zone=req_ip burst=20 nodelay;
+    limit_conn conn_ip 30;
+
+    # Site statique : seulement GET et HEAD
+    if ($request_method !~ ^(GET|HEAD)$) { return 405; }
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ /\.(?!well-known) { deny all; }
+}
+```
+```bash
+sudo ln -s /etc/nginx/sites-available/sous-domaine.domaine.fr /etc/nginx/sites-enabled/
+sudo nginx -t && sudo systemctl reload nginx
+```
+
 # démarrer le service
 ```bash
 sudo systemctl reload nginx
