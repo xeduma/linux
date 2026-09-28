@@ -187,7 +187,7 @@ add_header X-Content-Type-Options "nosniff" always;
 add_header Referrer-Policy "strict-origin-when-cross-origin" always;
 add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 ```
-
+refuse les accès hors de tes domaines
 ```bash
 sudo nano /etc/nginx/conf.d/00-default.conf
 ```
@@ -206,7 +206,7 @@ server {
 ```
 
 ```bash
-sudo nano /etc/nginx/conf.d/00-default.conf
+sudo nano /etc/nginx/sites-available/domaine.fr
 ```
 
 ```bash
