@@ -20,8 +20,8 @@ source ~/.bashrc
 acme.sh --set-default-ca --server letsencrypt
 
 nano .acme.sh/account.conf
-IONOS_PREFIX='bd849b7e28194a7f9c69d25c65f8411b'
-IONOS_SECRET='vZDYXgEx7V0mqtx9F5VOhfmb1sPSpClrXX74hhPU9TwO_d46LMzLs-FTew17_68ptiAi5309VJ2yvOfIbA4Jog'
+IONOS_PREFIX='aaaaaa_public'
+IONOS_SECRET='aaaa_privé'
 
 mkdir -p /etc/ssl/domaine.fr
 chown root:root /etc/ssl/domaine.fr
@@ -76,7 +76,7 @@ source ~/.bashrc
 acme.sh --set-default-ca --server letsencrypt
 
 nano .acme.sh/account.conf
-SCALEWAY_API_TOKEN="b1d8cdcb-1b30-4ead-be0d-0027b635554d"
+SCALEWAY_API_TOKEN="aaa_privé"
 
 mkdir -p /etc/ssl/domaine2.fr
 chown root:root /etc/ssl/domaine2.fr
