@@ -169,6 +169,77 @@ http {
 }
 ```
 
+```bash
+sudo nano /etc/nginx/snippets/ssl-ddvs.conf
+```
+```bash
+ssl_certificate     /etc/ssl/ddvs.fr/domaine.fr.crt;
+ssl_certificate_key /etc/ssl/ddvs.fr/domaine.fr.key;
+```
+
+```bash
+sudo nano /etc/nginx/snippets/security-headers.conf
+```
+```bash
+add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+add_header X-Frame-Options "SAMEORIGIN" always;
+add_header X-Content-Type-Options "nosniff" always;
+add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
+```
+
+```bash
+sudo nano /etc/nginx/conf.d/00-default.conf
+```
+```bash
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    return 444;
+}
+
+server {
+    listen 443 ssl default_server;
+    listen [::]:443 ssl default_server;
+    ssl_reject_handshake on;
+}
+```
+
+```bash
+sudo nano /etc/nginx/conf.d/00-default.conf
+```
+
+```bash
+server {
+    listen 80;
+    listen [::]:80;
+    server_name www.domaine.fr;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    http2 on;
+    server_name www.domaine.fr;
+
+    root /var/www/domaine.fr;
+    index index.html index.php;
+
+    include snippets/ssl-domaine.conf;
+    include snippets/security-headers.conf;
+
+    limit_req  zone=req_ip burst=20 nodelay;
+    limit_conn conn_ip 30;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # Fichiers cachés interdits (sauf .well-known)
+    location ~ /\.(?!well-known) { deny all; }
+}
+```
 tester la securité avec https://securityheaders.com/
 
 # démarrer le service
