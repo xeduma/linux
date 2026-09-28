@@ -8,6 +8,7 @@
 - [commandes divers](#autres-utilitaires)
 - [SSH](ssh.md)
 - [NGINX](nginx.md)
+- [certificat](certificat.md)
 - [Docker](docker.md)
 
 
