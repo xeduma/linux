@@ -83,6 +83,7 @@ sécurité logon, tail max, user.....
 ```bash
 sudo nano /etc/nginx/nginx.conf
 ```
+```bash
 user www-data;
 worker_processes auto;
 worker_cpu_affinity auto;
@@ -167,6 +168,7 @@ http {
     include /etc/nginx/sites-enabled/*;
 }
 ```
+
 tester la securité avec https://securityheaders.com/
 
 # démarrer le service
