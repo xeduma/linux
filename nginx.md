@@ -83,55 +83,88 @@ sécurité logon, tail max, user.....
 ```bash
 sudo nano /etc/nginx/nginx.conf
 ```
-désactivé l'affichage de la version de nginx
+user www-data;
+worker_processes auto;
+worker_cpu_affinity auto;
+worker_rlimit_nofile 4096;
+worker_shutdown_timeout 30s;
+pid /run/nginx.pid;
+error_log /var/log/nginx/error.log warn;
+include /etc/nginx/modules-enabled/*.conf;
 
-limité tail des requetes en mémoire tampon
+events {
+    worker_connections 1024;
+}
 
-```bash
-          server_tokens off;
-          client_body_buffer_size 1k;
-          client_header_buffer_size 1k;
-          client_max_body_size 1k;
+http {
+    ##
+    # Base
+    ##
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+    sendfile on;
+    tcp_nopush on;
+    types_hash_max_size 2048;
+    server_tokens off;
+    autoindex off;
 
- # Prevent clickjacking attacks
-    add_header X-Frame-Options "SAMEORIGIN" always;
+    ##
+    # Limites de requêtes (à surcharger dans le vhost qui en a besoin)
+    ##
+    client_header_buffer_size 4k;
+    large_client_header_buffers 4 16k;
+    client_body_buffer_size 16k;
+    client_max_body_size 1m;
 
-    # Add an HSTS header to your nginx server
-    add_header Strict-Transport-Security "max-age=31536000; includeSubdomains; always";
+    ##
+    # Timeouts (anti slowloris)
+    ##
+    client_header_timeout 10s;
+    client_body_timeout 10s;
+    send_timeout 10s;
+    keepalive_timeout 30s;
+    reset_timedout_connection on;
 
-    # Cross-site scripting protection
-    add_header X-XSS-Protection "1; mode=block";
-#    default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';
+    ##
+    # Anti-abus (zones définies ici, activées dans les vhosts)
+    ##
+    limit_req_zone  $binary_remote_addr zone=req_ip:10m rate=10r/s;
+    limit_conn_zone $binary_remote_addr zone=conn_ip:10m;
+    limit_req_status  429;
+    limit_conn_status 429;
 
-    # Prevention of MIME confusion-based attacks
-    add_header X-Content-Type-Options "nosniff" always;
+    ##
+    # TLS (commun à tous les vhosts)
+    ##
+    ssl_protocols TLSv1.3;              # mets "TLSv1.2 TLSv1.3" si tu as des clients anciens
+    ssl_prefer_server_ciphers off;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 1d;
+    ssl_session_tickets off;
+    # ssl_ecdh_curve X25519MLKEM768:X25519:prime256v1;   # optionnel, post-quantique
 
-    # Hide X-Powered-By header
-    proxy_hide_header X-Powered-By;
-#    more_clear_headers 'X-Powered-By';
+    ##
+    # Logs
+    ##
+    log_format main '$remote_addr [$time_local] "$request" $status '
+                    '$body_bytes_sent rt=$request_time';
+    access_log /var/log/nginx/access.log main;
 
-    # Referrer policy
-    add_header Referrer-Policy "origin-when-cross-origin" always;
+    ##
+    # Compression
+    ##
+    gzip on;
+    gzip_vary on;
+    gzip_comp_level 5;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css application/json application/javascript
+               text/xml application/xml image/svg+xml;
 
-#limiter les connexion (DDOS)
-limit_conn addr 10;
-```
-ssl 
-```bash
-#       ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; # Dropping SSLv3, ref: POODLE
-ssl_protocols TLSv1.3; # Dropping SSLv3, ref: POODLE
-ssl_prefer_server_ciphers on;
-```
-
-bloquer les autres methodes http : 
-```bash
-sudo nano /etc/nginx/sites-available/coucou
-```
-```bash
-location / {
-        limit_except GET HEAD POST {
-            deny all;
-        }
+    ##
+    # Vhosts
+    ##
+    include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/sites-enabled/*;
 }
 ```
 tester la securité avec https://securityheaders.com/
